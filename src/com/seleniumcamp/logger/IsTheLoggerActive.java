@@ -12,11 +12,10 @@ public class IsTheLoggerActive {
 	 
 	public static Boolean Check() throws IOException {
 		
-		if(prop.getPropValues(GlobalConstants.LOG_ACTIVITY) != null){
+		if(GlobalConstants.LOG_THINGS){
 			
 			return true;
 		}
-		
 		return false;
 	}
 	
