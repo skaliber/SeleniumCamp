@@ -6,13 +6,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import resources.GlobalConstants;
+
 import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.WebClient;
 import com.seleniumcamp.load.GlobalSettingsLoad;
 import com.seleniumcamp.load.SetChromeDriverPath;
+import com.seleniumcamp.logger.Log;
 
 public class PageDriver {
 	GlobalSettingsLoad properties = new GlobalSettingsLoad();
 	SetChromeDriverPath setchromepath = new SetChromeDriverPath();
+	private static Log logger = new Log();
 
 	public enum Drivers{
 		HtmlUnit,
@@ -27,8 +32,8 @@ public class PageDriver {
      public WebDriver SetHTMLUnitDriver(){
 		
     	 return new HtmlUnitDriver(BrowserVersion.CHROME);
-		 
-	}
+    	 
+     }
      
      //set firefox driver
    public WebDriver setFirefoxDriver(){
@@ -49,7 +54,7 @@ public class PageDriver {
      
     public WebDriver getDriver() throws IOException{
     	
-    		switch (properties.getPropValues("selenium.driver")) {
+    		switch (properties.getPropValues(GlobalConstants.SELENIUM_DRIVER)) {
 			case "HtmlUnit":
 				return driver = SetHTMLUnitDriver();
 			case "Chrome":
@@ -67,6 +72,8 @@ public class PageDriver {
     	
     	try {
 		driver.quit();
+		logger.LogActivity("Driver succesfully closed " + " " + properties.getPropValues(GlobalConstants.SELENIUM_DRIVER));
+		
 		} catch (Exception e) {
 			
 			throw new Exception("I Can't quit the driver"+ e.getLocalizedMessage());

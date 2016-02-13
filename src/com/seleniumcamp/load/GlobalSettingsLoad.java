@@ -23,8 +23,6 @@ public class GlobalSettingsLoad {
 		
 		result = properties.getProperty(propname);
 		
-		System.out.println("you are looking for the following properties " + result);
-		
 		return result;
 		
 	}
