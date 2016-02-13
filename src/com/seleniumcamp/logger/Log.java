@@ -1,6 +1,4 @@
 package com.seleniumcamp.logger;
-
-import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,8 +13,8 @@ import com.seleniumcamp.load.GlobalSettingsLoad;
 public class Log {
 
 	Logger logger = Logger.getLogger("MyLog");  
-    FileHandler fh;
-    Date date = new Date();
+    static FileHandler fh;
+    static Date date = new Date();
     String filelog = new SimpleDateFormat("dd/MM/yyyy").format(date);
     GlobalSettingsLoad prop = new GlobalSettingsLoad();
     
@@ -26,15 +24,12 @@ public class Log {
     	 String browser = prop.getPropValues(GlobalConstants.SELENIUM_DRIVER);
     	 
     	if(IsTheLoggerActive.Check()){
-    		 FileHandler fh;
+    		FileHandler fh;
  	        String filelog = new Date().toString();
- 	        File yourFile = new File("src/logger/" +browser + "-" + filelog +".log");
- 	        if(!yourFile.exists()) {
- 	            yourFile.createNewFile();
- 	        } 
+ 
  	        try {
  	            
- 	            fh = new FileHandler("src/logger/" +browser + "-" + filelog +".log");
+ 	             fh = new FileHandler("src/logger/" +browser + "-" + filelog +".log");
  	            logger.addHandler(fh);
  	            //logger.setLevel(Level.ALL);
  	            SimpleFormatter formatter = new SimpleFormatter();
