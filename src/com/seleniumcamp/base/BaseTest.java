@@ -1,7 +1,6 @@
 package com.seleniumcamp.base;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
 
 import org.junit.After;
 import org.junit.Before;
@@ -31,6 +30,8 @@ public class BaseTest extends PageDriver {
 			
 		}
 		driver.navigate().to(properties.getPropValues(GlobalConstants.WEB_SERVER));
+		driver.manage().deleteAllCookies();
+		driver.navigate().refresh();
 		logger.LogActivity("Driver succesfully navigated to " + " " + properties.getPropValues(GlobalConstants.WEB_SERVER));
 		
      }

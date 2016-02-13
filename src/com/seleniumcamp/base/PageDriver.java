@@ -9,7 +9,6 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import resources.GlobalConstants;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
-import com.gargoylesoftware.htmlunit.WebClient;
 import com.seleniumcamp.load.GlobalSettingsLoad;
 import com.seleniumcamp.load.SetChromeDriverPath;
 import com.seleniumcamp.logger.Log;

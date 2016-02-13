@@ -20,8 +20,8 @@ public class Log {
     String filelog = new SimpleDateFormat("dd/MM/yyyy").format(date);
     GlobalSettingsLoad prop = new GlobalSettingsLoad();
     
-    
-    public void LogActivity(String activitytolog) throws IOException{
+
+	public void LogActivity(String activitytolog) throws IOException{
     	
     	 String browser = prop.getPropValues(GlobalConstants.SELENIUM_DRIVER);
     	 

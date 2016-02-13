@@ -1,7 +1,5 @@
 package com.seleniumcamp.load;
-
 import java.io.IOException;
-
 import resources.GlobalConstants;
 
 public class SetChromeDriverPath {
